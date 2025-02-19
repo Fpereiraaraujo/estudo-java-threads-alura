@@ -10,8 +10,17 @@ public class AppBanco {
 
         var operacao = new OperacaoSaque(conta,new BigDecimal("150"));
 
-        operacao.executa();
-        operacao.executa();
+        Thread saqueJoao = new Thread(operacao);
+        Thread saqueMaria  = new Thread(operacao);
+
+        saqueJoao.start();
+        saqueMaria.start();
+
+        System.out.println(Thread.currentThread().getName());
+
+
+//        operacao.executa();
+//        operacao.executa();
 
     }
 
